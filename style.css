@@ -1,0 +1,45 @@
+:root {
+  --lightgrey: #d9d9da;
+  --grey: #a3a8ac;
+  --darkgrey: #4a575f;
+  --black: #1E2022;
+}
+@font-face { font-family: Sora; src: url('Sora-Regular.ttf'); }
+
+html {
+  font-family: Sora;
+}
+
+header {
+  background-color: var(--grey);
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0px;
+  text-align: center;
+  background-image: url("Topography.png");
+}
+
+a {
+  color: var(--darkgrey);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--black);
+  text-decoration: none;
+}
+
+p {
+  background-color: var(--lightgrey)
+  
+}
+
+.profile-image {
+  margin-top: 0.25%;
+  margin-bottom: 0.25%;
+  border-radius: 10%;
+  max-width: 20%;
+}
