@@ -4,7 +4,7 @@
   --darkgrey: #4a575f;
   --black: #1E2022;
 }
-@font-face { font-family: Sora; src: url('Sora-Regular.ttf'); }
+@font-face { font-family: Sora; src: url('Sora-Light.ttf'); }
 
 html {
   font-family: Sora;
@@ -12,14 +12,21 @@ html {
 
 header {
   background-color: var(--grey);
+  padding: 1px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  max-width: 50%;
   margin: 0;
-  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 body {
   margin: 0px;
   text-align: center;
-  background-image: url("Topography.png");
+  background-color: var(--lightgrey);
+  /*background-image: url("Topography.png");*/
 }
 
 a {
@@ -32,14 +39,7 @@ a:hover {
   text-decoration: none;
 }
 
-p {
-  background-color: var(--lightgrey)
-  
-}
-
 .profile-image {
-  margin-top: 0.25%;
-  margin-bottom: 0.25%;
-  border-radius: 10%;
+  border-radius: 20px;
   max-width: 20%;
 }
