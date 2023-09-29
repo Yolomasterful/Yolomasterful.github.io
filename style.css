@@ -3,7 +3,9 @@
   --grey: #a3a8ac;
   --darkgrey: #4a575f;
   --black: #1E2022;
+  --radius: 10px;
 }
+
 @font-face { font-family: Sora; src: url('Sora-Light.ttf'); }
 
 html {
@@ -11,35 +13,59 @@ html {
 }
 
 header {
-  background-color: var(--grey);
-  padding: 1px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-  max-width: 50%;
-  margin: 0;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
+  background-color: var(--grey);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  text-justify: center;
+}
+
+header a {
+  color: var(--darkgrey);
+}
+
+header a:hover {
+  color: var(--black);
 }
 
 body {
   margin: 0px;
   text-align: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: var(--lightgrey);
-  /*background-image: url("Topography.png");*/
+}
+
+footer {
+  text-align: center;
+  background-color: var(--grey);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  text-decoration: none;
+}
+
+footer svg {
+  color: var(--darkgrey);
+  margin: 5%;
+}
+
+footer svg:hover {
+  color: var(--black);
+  margin: 5%;
+  cursor: pointer;
+}
+
+.profile-image {
+  border-radius: var(--radius);
+  max-width: 20%;
 }
 
 a {
-  color: var(--darkgrey);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--black);
   text-decoration: none;
-}
-
-.profile-image {
-  border-radius: 20px;
-  max-width: 20%;
 }
