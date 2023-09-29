@@ -14,10 +14,10 @@ html {
 
 header {
   text-align: center;
+  margin: 0px;
   background-color: var(--grey);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
-  text-justify: center;
 }
 
 header a {
@@ -31,10 +31,6 @@ header a:hover {
 body {
   margin: 0px;
   text-align: center;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-height: 100vh;
   background-color: var(--lightgrey);
 }
 
