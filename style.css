@@ -1,46 +1,31 @@
 :root {
-  --background: #D8D9DA;
-  --foreground: #5b6070;
-  --item: #ececec;
-  --itemhover: #3d3e3f;
+  --cream: #D8D9DA;
+  --grey: #5b6070;
+  --darkgrey: #3d3e3f;
   --radius: 10px;
 }
 
-@font-face { font-family: Sora-ExtraLight; src: url('Sora-ExtraLight.ttf'); }
+@font-face { font-family: Sora-ExtraLight; src: url('./assets/Sora-ExtraLight.ttf'); }
 
 html {
   font-family: Sora-ExtraLight;
 }
 
 a {
-  color: var(--item);
+  color: var(--cream);
   text-decoration: none;
 }
 
 a:hover {
-  color: var(--itemhover);
-}
-
-svg {
-  display: inline-block;
-  color: var(--item);
-}
-
-svg:hover {
-  color: var(--itemhover);
-  cursor: pointer;
+  color: var(--darkgrey);
 }
 
 header {
-  background-color: var(--foreground);
-  border-bottom-left-radius: var(--radius);
-  border-bottom-right-radius: var(--radius);
-  border-radius: var(--radius);
+  background-color: var(--grey);
   width: fit-content;
   margin: 1%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 header h2 {
@@ -51,29 +36,63 @@ header h2 {
 body {
   margin: 0px;
   text-align: center;
-  background-color: var(--background);
+  background-color: var(--cream);
   min-height: auto;
 }
 
+body svg {
+  margin: 20px;
+  display: inline-block;
+  color: var(--grey);
+}
+
+body svg:hover {
+  color: var(--cream);
+  cursor: pointer;
+}
+
 footer {
-  background-color: var(--foreground);
-  border-radius: var(--radius);
+  background-color: var(--grey);
   width: fit-content;
   margin: auto;
   margin-top: 100px;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 footer svg {
   margin: 20px;
+  display: inline-block;
+  color: var(--cream);
+}
+
+footer svg:hover {
+  color: var(--darkgrey);
+  cursor: pointer;
 }
 
 .profile-image {
-  border-radius: var(--radius);
   max-width: 20%;
   margin-top: 1.5%;
   margin-bottom: 1.5%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.shadow {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.border {
+  border-radius: var(--radius);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2%;
+}
+
+.grid img {
+  width: 50%;
+  justify-content: center;
+  align-items: center;
 }
