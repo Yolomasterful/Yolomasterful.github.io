@@ -3,6 +3,7 @@
   --grey: #5b6070;
   --darkgrey: #3d3e3f;
   --radius: 10px;
+  --gameimgsize: 80%;
 }
 
 @font-face { font-family: Sora-ExtraLight; src: url('./assets/Sora-ExtraLight.ttf'); }
@@ -85,14 +86,15 @@ footer svg:hover {
   border-radius: var(--radius);
 }
 
-.grid {
+.gamesgrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(25%, 1fr));
+  max-width: 100%;
   margin: 2%;
 }
 
-.grid img {
-  width: 50%;
-  justify-content: center;
-  align-items: center;
+.gamesgrid img {
+  max-width: var(--gameimgsize);
+  max-height: var(--gameimgsize);
+  margin: auto;
 }
