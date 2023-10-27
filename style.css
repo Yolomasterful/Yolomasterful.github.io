@@ -95,6 +95,10 @@ body svg:hover {
   margin-top: 100px;
 }
 
+.connections a {
+  text-decoration: none;
+}
+
 .connections svg{
   margin: 20px;
   display: inline-block;
