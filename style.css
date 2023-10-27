@@ -1,5 +1,6 @@
 :root {
-  --cream: #D8D9DA;
+  /*--cream: #D8D9DA;*/
+  --cream: #ffffffec;
   --grey: #5b6070;
   --darkgrey: #3d3e3f;
   --radius: 10px;
@@ -11,22 +12,25 @@
 }
 
 @keyframes rainbow {
-  0%    { color: rgba(255, 0, 0, 0.75);}
-  9.1%  { color: rgba(255, 125, 0, 0.75);}
-  18.2% { color: rgba(255, 255, 0, 0.75);}
-  27.3% { color: rgba(125, 255, 0, 0.75);}
-  36.4% { color: rgba(0, 255, 0, 0.75);}
-  45.5% { color: rgba(0, 255, 125, 0.75);}
-  54.5% { color: rgba(0, 255, 255, 0.75);}
-  63.6% { color: rgba(0, 125, 255, 0.75);}
-  72.7% { color: rgba(0, 0, 255, 0.75);}
-  81.8% { color: rgba(125, 0, 255, 0.75);}
-  90.9% { color: rgba(255, 0, 255, 0.75);}
-  100%  { color: rgba(255, 0, 125, 0.75);}
+  0%    { color: rgba(255, 0, 0, 0.9);}
+  9.1%  { color: rgba(255, 125, 0, 0.9);}
+  18.2% { color: rgba(255, 255, 0, 0.9);}
+  27.3% { color: rgba(125, 255, 0, 0.9);}
+  36.4% { color: rgba(0, 255, 0, 0.9);}
+  45.5% { color: rgba(0, 255, 125, 0.9);}
+  54.5% { color: rgba(0, 255, 255, 0.9);}
+  63.6% { color: rgba(0, 125, 255, 0.9);}
+  72.7% { color: rgba(0, 0, 255, 0.9);}
+  81.8% { color: rgba(125, 0, 255, 0.9);}
+  90.9% { color: rgba(255, 0, 255, 0.9);}
+  100%  { color: rgba(255, 0, 125, 0.9);}
 }
 
 @keyframes bg-scrolling {
-  100%   { background-position: 50px 50px;}
+  25%  { background-position: 50px 50px;}
+  50%  { background-position: 50px 100px;}
+  75%  { background-position: 0px 150px;}
+  100% { background-position: 0px 200px;}
 }
 
 html {
@@ -61,8 +65,19 @@ body {
   text-align: center;
   background-color: var(--cream); 
   background: url("/assets/grid.png") repeat 0 0;
-  animation: bg-scrolling 5s infinite linear;
+  animation: bg-scrolling 20s infinite linear;
   min-height: auto;
+}
+
+body h1 {
+
+}
+
+body h3 {
+  margin: auto;
+  margin-top: 20px;
+  max-width: 60%;
+  word-wrap: break-word;
 }
 
 body svg {
