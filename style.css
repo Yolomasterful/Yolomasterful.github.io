@@ -3,7 +3,7 @@
   --cream: #ffffffec;
   --grey: #5b6070;
   --darkgrey: #3d3e3f;
-  --radius: 10px;
+  --radius: 7.5px;
   --gameimgsize: 80%;
 }
 
@@ -37,6 +37,10 @@ html {
   font-family: Sora-ExtraLight;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   background-color: var(--grey);
   width: fit-content;
@@ -47,23 +51,22 @@ header {
 
 header a {
   color: var(--cream);
-  text-decoration: none;
 }
 
 header a:hover {
   color: var(--darkgrey);
-  animation: rainbow 5s infinite linear;
+  animation: rainbow 10s infinite linear;
 }
 
 header h2 {
   display: inline-block;
-  margin: 30px;
+  margin: 20px;
 }
 
 body {
   margin: 0px;
   text-align: center;
-  background-color: var(--cream); 
+  background-color: var(--cream);
   background: url("/assets/grid.png") repeat 0 0;
   animation: bg-scrolling 20s infinite linear;
   min-height: auto;
@@ -77,14 +80,13 @@ body h3 {
 }
 
 body svg {
-  margin: 20px;
   display: inline-block;
   color: var(--grey);
 }
 
 body svg:hover {
   color: var(--cream);
-  animation: rainbow 5s infinite linear;
+  animation: rainbow 10s infinite linear;
   cursor: pointer;
 }
 
@@ -92,27 +94,20 @@ body svg:hover {
   background-color: var(--grey);
   width: fit-content;
   margin: auto;
-  margin-top: 100px;
+  margin-top: auto;
 }
 
-.connections a {
-  text-decoration: none;
-}
-
-.connections svg{
-  margin: 20px;
+.connections div {
   display: inline-block;
+  margin: 20px;
+}
+
+.connections svg {
   color: var(--cream);
 }
 
-.connections svg:hover {
-  color: var(--darkgrey);
-  animation: rainbow 5s infinite linear;
-  cursor: pointer;
-}
-
 .profile-image {
-  max-width: 20%;
+  max-width: 300px;
   margin-top: 1.5%;
   margin-bottom: 1.5%;
   margin-left: auto;
@@ -127,7 +122,7 @@ body svg:hover {
   border-radius: var(--radius);
 }
 
-.grid {
+/* .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(25%, 1fr));
   max-width: 100%;
@@ -138,4 +133,4 @@ body svg:hover {
   max-width: var(--gameimgsize);
   max-height: var(--gameimgsize);
   margin: auto;
-}
+} */
