@@ -55,7 +55,7 @@ header a {
 
 header a:hover {
   color: var(--darkgrey);
-  animation: rainbow 10s linear random infinite running;
+  animation: rainbow 10s linear infinite running;
 }
 
 header h2 {
