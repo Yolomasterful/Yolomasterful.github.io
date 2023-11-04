@@ -55,7 +55,7 @@ header a {
 
 header a:hover {
   color: var(--darkgrey);
-  animation: rainbow 10s infinite linear;
+  animation: rainbow 10s linear random infinite running;
 }
 
 header h2 {
@@ -90,28 +90,18 @@ body svg:hover {
   cursor: pointer;
 }
 
-.connections {
-  background-color: var(--grey);
-  width: fit-content;
-  margin: auto;
-  margin-top: auto;
-}
-
-.connections div {
-  display: inline-block;
-  margin: 20px;
-}
-
-.connections svg {
-  color: var(--cream);
-}
-
 .profile-image {
   max-width: 300px;
   margin-top: 1.5%;
   margin-bottom: 1.5%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.box {
+  background-color: var(--grey);
+  width: fit-content;
+  border-radius: var(--radius);
 }
 
 .shadow {
@@ -122,14 +112,30 @@ body svg:hover {
   border-radius: var(--radius);
 }
 
-/* .grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(25%, 1fr));
+  grid-template-columns: repeat(2, minmax(25%, 1fr));
   max-width: 100%;
-  margin: 2%;
+  margin: 7.5%;
+  margin-left: 20%;
+  margin-right: 20%;
+
 }
 
-.gamesgrid img {
+.a-wrapper {
+  display: inline-block;
+  margin: 20px;
+}
+
+.connections {
+  margin: auto;
+  margin-top: 100px;
+}
+
+.connections svg {
+  color: var(--cream);
+}
+/* .gamesgrid img {
   max-width: var(--gameimgsize);
   max-height: var(--gameimgsize);
   margin: auto;
