@@ -7,6 +7,18 @@
   --gameimgsize: 80%;
 }
 
+.color-cream {
+  color: var(--cream)
+}
+
+.color-grey {
+  color: var(--grey)
+}
+
+.color-darkgrey {
+  color: var(--darkgrey)
+}
+
 @font-face { 
   font-family: Sora-ExtraLight; src: url('./assets/Sora-ExtraLight.ttf'); 
 }
@@ -26,6 +38,24 @@
   100%  { color: rgb(255, 0, 125);}
 }
 
+@keyframes outlineAnimation {
+  0% {
+    filter: drop-shadow(0 0 0 #ff0000);
+  }
+  25% {
+    filter: drop-shadow(0 0 5px #ff0000);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px #ff0000);
+  }
+  75% {
+    filter: drop-shadow(0 0 5px #ff0000);
+  }
+  100% {
+    filter: drop-shadow(0 0 0 #ff0000);
+  }
+}
+
 @keyframes bg-scrolling {
   25%  { background-position: 50px 50px;}
   50%  { background-position: 50px 100px;}
@@ -41,6 +71,18 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  animation: outlineAnimation 5s infinite linear, rainbow 10s infinite linear;
+  cursor: pointer;
+  filter: drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream));
+}
+
+svg:hover {
+  animation: rainbow 5s infinite linear;
+  cursor: pointer;
+  filter: drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream));
+}
+
 header {
   background-color: var(--grey);
   width: fit-content;
@@ -50,12 +92,7 @@ header {
 }
 
 header a {
-  color: var(--cream);
-}
-
-header a:hover {
-  color: var(--darkgrey);
-  animation: rainbow 10s linear infinite running;
+  color: var(--cream)
 }
 
 header h2 {
@@ -79,16 +116,18 @@ body h3 {
   word-wrap: break-word;
 }
 
-body svg {
+/* body svg {
   display: inline-block;
   color: var(--grey);
-}
+} */
 
-body svg:hover {
+/* body svg:hover {
   color: var(--cream);
   animation: rainbow 10s infinite linear;
   cursor: pointer;
-}
+} */
+
+
 
 .profile-image {
   max-width: 300px;
@@ -132,9 +171,7 @@ body svg:hover {
   margin-top: 100px;
 }
 
-.connections svg {
-  color: var(--cream);
-}
+
 /* .gamesgrid img {
   max-width: var(--gameimgsize);
   max-height: var(--gameimgsize);
