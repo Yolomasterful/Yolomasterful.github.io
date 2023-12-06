@@ -62,15 +62,13 @@ a {
 }
 
 a:hover {
-  animation: outlineAnimation 5s infinite linear, rainbow 10s infinite linear;
+  animation: outlineAnimation 5s infinite linear, rainbow 5s infinite linear;
   cursor: pointer;
-  /* filter: drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)); */
 }
 
 svg:hover {
   animation: rainbow 5s infinite linear;
   cursor: pointer;
-  /* filter: drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)) drop-shadow(0 0 1px var(--cream)); */
 }
 
 header {
