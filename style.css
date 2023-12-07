@@ -1,6 +1,6 @@
 :root {
   /*--cream: #D8D9DA;*/
-  --cream: #ffffec;
+  --white: #ffffff;
   --grey: #5b6070;
   --darkgrey: #3d3e3f;
   --radius: 7.5px;
@@ -27,11 +27,11 @@
 }
 
 @keyframes outlineAnimation {
-  0% {filter: drop-shadow(0 0 0 var(--cream));}
-  25% {filter: drop-shadow(0 0 2.5px var(--cream));}
-  50% {filter: drop-shadow(0 0 5px var(--cream));}
-  75% {filter: drop-shadow(0 0 2.5px var(--cream));}
-  100% {filter: drop-shadow(0 0 0 var(--cream));}
+  0% {filter: drop-shadow(0 0 0 var(--white));}
+  25% {filter: drop-shadow(0 0 2.5px var(--white));}
+  50% {filter: drop-shadow(0 0 5px var(--white));}
+  75% {filter: drop-shadow(0 0 2.5px var(--white));}
+  100% {filter: drop-shadow(0 0 0 var(--white));}
 }
 
 @keyframes bg-scrolling {
@@ -43,7 +43,7 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --color-bg: var(--cream);
+    --color-bg: var(--white);
     --color-fg: var(var(--darkgrey));
   }
   
@@ -54,7 +54,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: var(--darkgrey);
-    --color-fg: var(--cream)
+    --color-fg: var(--white)
   }
 
   body {
@@ -70,8 +70,8 @@
   color: var(--color-fg);
 }
 
-.color-cream {
-  color: var(--cream)
+.color-white {
+  color: var(--white)
 }
 
 .color-grey {
@@ -111,7 +111,7 @@ header {
 }
 
 header a {
-  color: var(--cream)
+  color: var(--white)
 }
 
 header h2 {
