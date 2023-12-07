@@ -7,18 +7,6 @@
   --gameimgsize: 80%;
 }
 
-.color-cream {
-  color: var(--cream)
-}
-
-.color-grey {
-  color: var(--grey)
-}
-
-.color-darkgrey {
-  color: var(--darkgrey)
-}
-
 @font-face { 
   font-family: Sora-ExtraLight; src: url('./assets/Sora-ExtraLight.ttf'); 
 }
@@ -52,6 +40,41 @@
   75%  { background-position: 0px 150px;}
   100% { background-position: 0px 200px;}
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: var(--cream);
+    --color-fg: var(var(--darkgrey));
+  }
+  
+  body {
+    background: url("/assets/light_mode_grid.png") repeat 0 0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--darkgrey);
+    --color-fg: var(--cream)
+  }
+
+  body {
+    background: url("/assets/dark_mode_grid.png") repeat 0 0;
+  }
+}
+
+.color-cream {
+  color: var(--cream)
+}
+
+.color-grey {
+  color: var(--grey)
+}
+
+.color-darkgrey {
+  color: var(--darkgrey)
+}
+
+
 
 html {
   font-family: Sora-ExtraLight;
@@ -91,13 +114,13 @@ header h2 {
 body {
   margin: 0px;
   text-align: center;
-  background-color: var(--cream);
-  background: url("/assets/grid.png") repeat 0 0;
+  background-color: var(--color-bg);
   animation: bg-scrolling 20s infinite linear;
   min-height: auto;
 }
 
-body h3 {
+body h1, body h3 {
+  color: var(--color-fg);
   margin: auto;
   margin-top: 20px;
   max-width: 60%;
