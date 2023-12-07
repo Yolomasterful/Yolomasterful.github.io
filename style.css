@@ -123,7 +123,6 @@ svg:hover {
 }
 
 header {
-  background-color: var(--grey);
   width: fit-content;
   margin: 1%;
   margin-left: auto;
@@ -136,20 +135,21 @@ header h2 {
 }
 
 body {
-  margin: 0px;
   text-align: center;
   background-color: var(--color-bg);
   animation: bg-scrolling 20s infinite linear;
   min-height: auto;
 }
 
-body h1, body h3 {
+body h1, body h2, body h3 {
   color: var(--color-fg);
-  margin: auto;
-  margin-top: 20px;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
   max-width: 60%;
   word-wrap: break-word;
 }
+
 
 .profile-image {
   max-width: 300px;
