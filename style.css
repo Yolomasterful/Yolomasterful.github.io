@@ -1,6 +1,6 @@
 :root {
   /*--cream: #D8D9DA;*/
-  --cream: #ffffffec;
+  --cream: #ffffec;
   --grey: #5b6070;
   --darkgrey: #3d3e3f;
   --radius: 7.5px;
@@ -60,6 +60,14 @@
   body {
     background: url("/assets/dark_mode_grid.png") repeat 0 0;
   }
+}
+
+.color-bg {
+  color: var(--color-bg);
+}
+
+.color-fg {
+  color: var(--color-fg);
 }
 
 .color-cream {
