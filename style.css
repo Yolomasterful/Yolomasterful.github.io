@@ -15,17 +15,18 @@ html {
 
 @keyframes rainbow {
   0%    { color: rgb(255, 0, 0);}
-  9.1%  { color: rgb(255, 125, 0);}
-  18.2% { color: rgb(255, 255, 0);}
-  27.3% { color: rgb(125, 255, 0);}
-  36.4% { color: rgb(0, 255, 0);}
-  45.5% { color: rgb(0, 255, 125);}
-  54.5% { color: rgb(0, 255, 255);}
-  63.6% { color: rgb(0, 125, 255);}
-  72.7% { color: rgb(0, 0, 255);}
-  81.8% { color: rgb(125, 0, 255);}
-  90.9% { color: rgb(255, 0, 255);}
-  100%  { color: rgb(255, 0, 125);}
+  8.3%  { color: rgb(255, 125, 0);}
+  16.6% { color: rgb(255, 255, 0);}
+  25%   { color: rgb(125, 255, 0);}
+  33.3% { color: rgb(0, 255, 0);}
+  41.6% { color: rgb(0, 255, 125);}
+  50%   { color: rgb(0, 255, 255);}
+  58.3% { color: rgb(0, 125, 255);}
+  66.6% { color: rgb(0, 0, 255);}
+  75%   { color: rgb(125, 0, 255);}
+  83.3% { color: rgb(255, 0, 255);}
+  91.6% { color: rgb(255, 0, 125);}
+  100%  { color: rgb(255, 0, 0);}
 }
 
 @keyframes outlineAnimation {
@@ -72,8 +73,22 @@ html {
   color: var(--color-fg);
 }
 
+.box {
+  background-color: var(--grey);
+  border-radius: var(--radius);
+}
+
+.border {
+  border-radius: var(--radius);
+}
+
 .shadow {
   filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+}
+
+.fit-content {
+  margin: auto;
+  width: fit-content;
 }
 
 .color-white {
@@ -88,7 +103,7 @@ html {
   color: var(--darkgrey)
 }
 
-iframe {
+.resume {
   width: 62vw;
   height: 88vh;
 }
@@ -144,25 +159,15 @@ body h1, body h3 {
   margin-right: auto;
 }
 
-.box {
-  background-color: var(--grey);
-  width: fit-content;
-  border-radius: var(--radius);
-}
-
-.border {
-  border-radius: var(--radius);
-}
-
-.grid {
+/* .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(25%, 1fr));
   max-width: 100%;
   margin: 7.5%;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
 
-}
+} */
 
 .a-wrapper {
   display: inline-block;
@@ -170,13 +175,9 @@ body h1, body h3 {
 }
 
 .connections {
+  background-color: var(--grey);
+  width: fit-content;
+  border-radius: var(--radius);
   margin: auto;
   margin-top: 100px;
 }
-
-
-/* .gamesgrid img {
-  max-width: var(--gameimgsize);
-  max-height: var(--gameimgsize);
-  margin: auto;
-} */
