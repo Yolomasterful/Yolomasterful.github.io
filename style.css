@@ -76,10 +76,8 @@ html {
   border-radius: var(--radius);
   width: fit-content;
   height: fit-content;
-}
-
-.box-margin {
-  margin: 20px;
+  margin: 1%;
+  padding: 20px;
 }
 
 .border {
@@ -88,11 +86,6 @@ html {
 
 .shadow {
   filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
-}
-
-.fit-content {
-  margin: auto;
-  width: fit-content;
 }
 
 .color-white {
@@ -116,6 +109,10 @@ a {
   text-decoration: none;
 }
 
+svg a {
+  color: var(--white);
+}
+
 a:hover {
   animation: outlineAnimation 5s infinite linear, rainbow 5s infinite linear;
   cursor: pointer;
@@ -128,7 +125,6 @@ svg:hover {
 
 header {
   width: fit-content;
-  margin: 1%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -171,15 +167,12 @@ body {
 
 } */
 
-.a-wrapper {
-  display: inline-block;
-  margin: 20px;
+.connections {
+  margin: auto;
+  padding: 20px;
 }
 
-.connections {
-  background-color: var(--grey);
-  width: fit-content;
-  border-radius: var(--radius);
-  margin: auto;
-  margin-top: 100px;
+svg + svg {
+  margin-left: 10px;
 }
+
