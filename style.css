@@ -6,11 +6,30 @@
 }
 
 @font-face { 
-  font-family: Sora-ExtraLight; src: url('./assets/Sora-ExtraLight.ttf'); 
+  font-family: Sora; src: url('./assets/Sora-VariableFont_wght.ttf'); 
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: var(--white);
+    --color-fg: var(var(--darkgrey));
+    --background-pattern: url("/assets/light_mode_grid.png");
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--darkgrey);
+    --color-fg: var(--white);
+    --background-pattern: url("/assets/dark_mode_grid.png");
+  }
 }
 
 html {
-  font-family: Sora-ExtraLight;
+  font-family: Sora, sans-serif;
+  font-weight: 200;
+  background: var(--background-pattern) repeat 0 0;
+  animation: bg-scrolling 20s cubic-bezier(.46,.03,.52,.96) infinite;
+  /* filter: blur(0.5px); */
 }
 
 @keyframes rainbow {
@@ -42,31 +61,6 @@ html {
   50%  { background-position: 50px 100px;}
   75%  { background-position: 0px 150px;}
   100% { background-position: 0px 200px;}
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: var(--white);
-    --color-fg: var(var(--darkgrey));
-  }
-  
-  body {
-    background-color: var(--color-bg);
-    background: url("/assets/light_mode_grid.png") repeat 0 0;
-    animation: bg-scrolling 20s linear infinite ;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: var(--darkgrey);
-    --color-fg: var(--white)
-  }
-
-  body {
-    background-color: var(--color-bg);
-    background: url("/assets/dark_mode_grid.png") repeat 0 0;
-    animation: bg-scrolling 20s linear infinite;
-  }
 }
 
 .color-bg {
