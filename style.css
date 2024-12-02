@@ -4,8 +4,8 @@
   --background: #a9c0a7;
   --secondary-background: #C2DDC0;
   --box-background: #879f8c;
+  --background-pattern: url(./assets/green_grid.png);
   --radius: 10px;
-  --tile-size: 50px;
 }
 
 @font-face { 
@@ -19,59 +19,23 @@
   font-style: italic;
 }
 
+@keyframes bg-scrolling {
+  25%  { background-position: calc(50% + 100px) calc(50% + 100px);}
+  50%  { background-position: calc(50% + 100px) calc(50% + 200px);}
+  75%  { background-position: 50% calc(50% + 300px);}
+  100% { background-position: 50% calc(50% + 400px);}
+}
+
 html {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
-  background-color: var(--background);
+  /* background-color: var(--background); */
   font-family: Inter, sans-serif;
-}
-
-.tile-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.tile {
-  position: absolute;
-  width: var(--tile-size);
-  height: var(--tile-size);
-  background-color: var(--secondary-background);
-  border-radius: var(--radius);
-  animation: tile-animation 10s infinite;
-}
-
-@keyframes tile-animation {
-  0% {
-    background-color: var(--background);
-    border-radius: var(--radius);
-  }
-  50% {
-
-    background-color: var(--secondary-background);
-    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
-  }
-  100% {
-    background-color: var(--background);
-    transform: scale(1);
-  }
-}
-
-.content {
-  top: 0;
-  left: 0;
-  position: absolute;
-  text-align: center;
-  z-index: 10;
+  background: var(--background-pattern) repeat 0 0;
+  background-position: 50% 50%;
+  animation: bg-scrolling 10s cubic-bezier(.46,.03,.52,.96) infinite;
 }
 
 body {
@@ -80,8 +44,6 @@ body {
   text-align: center;
   color: var(--foreground);
 }
-
-
 
 a {
   text-decoration: none;
@@ -92,8 +54,14 @@ a:hover {
   color: var(--accent);
 }
 
-.me {
+.inline-block div, .inline-block h2, .inline-block a {
+  display: inline-block;
+  margin: 0;
+}
 
+.inline-block div + div, .inline-block h2 + h2, .inline-block a + a {
+  display: inline-block;
+  margin-left: 10px;
 }
 
 .box {
@@ -116,4 +84,13 @@ a:hover {
 
 .shadow {
   filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+}
+
+.shadow > a:hover {
+  text-shadow: 
+    1px 1px 0 #ffffff80,    /* Shadow on the right and bottom (black) */
+    -1px -1px 0 #ffffff80,  /* Shadow on the left and top (black) */
+    1px -1px 0 #ffffff80,   /* Shadow on the top right (black) */
+    -1px 1px 0 #ffffff80;
+  filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
 }
