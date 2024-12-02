@@ -1,76 +1,103 @@
 :root {
-  --white: #ffffff;
-  --grey: #5b6070;
-  --darkgrey: #3d3e3f;
-  --radius: 7.5px;
-  --color-bg: var(--darkgrey);
-  --color-fg: var(--white);
-  --background-pattern: url("/assets/dark_mode_grid.png");
+  --foreground: #ffffff;
+  --accent: #4d574a;
+  --background: #a9c0a7;
+  --secondary-background: #C2DDC0;
+  --box-background: #879f8c;
+  --radius: 10px;
+  --tile-size: 50px;
 }
 
 @font-face { 
-  font-family: Sora; src: url('./assets/Sora-VariableFont_wght.ttf'); 
+  font-family: Inter; 
+  src: url('./assets/Inter-VariableFont.ttf');
+  font-style: normal;
 }
-
-@keyframes rainbow {
-  0%    { color: rgb(255, 0, 0);}
-  8.3%  { color: rgb(255, 125, 0);}
-  16.6% { color: rgb(255, 255, 0);}
-  25%   { color: rgb(125, 255, 0);}
-  33.3% { color: rgb(0, 255, 0);}
-  41.6% { color: rgb(0, 255, 125);}
-  50%   { color: rgb(0, 255, 255);}
-  58.3% { color: rgb(0, 125, 255);}
-  66.6% { color: rgb(0, 0, 255);}
-  75%   { color: rgb(125, 0, 255);}
-  83.3% { color: rgb(255, 0, 255);}
-  91.6% { color: rgb(255, 0, 125);}
-  100%  { color: rgb(255, 0, 0);}
-}
-
-@keyframes outlineAnimation {
-  0% {filter: drop-shadow(0 0 0 var(--white));}
-  25% {filter: drop-shadow(0 0 2.5px var(--white));}
-  50% {filter: drop-shadow(0 0 5px var(--white));}
-  75% {filter: drop-shadow(0 0 2.5px var(--white));}
-  100% {filter: drop-shadow(0 0 0 var(--white));}
-}
-
-@keyframes bg-scrolling {
-  25%  { background-position: 50px 50px;}
-  50%  { background-position: 50px 100px;}
-  75%  { background-position: 0px 150px;}
-  100% { background-position: 0px 200px;}
+@font-face { 
+  font-family: Inter; 
+  src: url('./assets/Inter-Italic-VariableFont.ttf');
+  font-style: italic;
 }
 
 html {
-  font-family: Sora, sans-serif;
-  font-weight: 200;
-  background: var(--background-pattern) repeat 0 0;
-  animation: bg-scrolling 20s cubic-bezier(.46,.03,.52,.96) infinite;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--background);
+  font-family: Inter, sans-serif;
+}
+
+.tile-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.tile {
+  position: absolute;
+  width: var(--tile-size);
+  height: var(--tile-size);
+  background-color: var(--secondary-background);
+  border-radius: var(--radius);
+  animation: tile-animation 10s infinite;
+}
+
+@keyframes tile-animation {
+  0% {
+    background-color: var(--background);
+    border-radius: var(--radius);
+  }
+  50% {
+
+    background-color: var(--secondary-background);
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+  }
+  100% {
+    background-color: var(--background);
+    transform: scale(1);
+  }
+}
+
+.content {
+  top: 0;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  z-index: 10;
 }
 
 body {
   margin: 0;
+  overflow: hidden;
   text-align: center;
-  color: var(--color-fg);
-  /* backdrop-filter: blur(1px); */
+  color: var(--foreground);
 }
+
+
 
 a {
   text-decoration: none;
+  font-family: Inter, sans-serif;
 }
 
-.color-bg {
-  color: var(--color-bg);
+a:hover {
+  color: var(--accent);
 }
 
-.color-fg {
-  color: var(--color-fg);
+.me {
+
 }
 
 .box {
-  background-color: var(--grey);
+  background-color: var(--box-background);
   border-radius: var(--radius);
   width: fit-content;
   height: fit-content;
@@ -78,61 +105,15 @@ a {
   margin: 1%;
 }
 
-.border {
-  border-radius: var(--radius);
-}
-
-.shadow {
-  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
-}
-
 .center {
   margin-left: auto;
   margin-right: auto;
 }
 
-.inline-block div, .inline-block h2, .inline-block a {
-  display: inline-block;
-  margin: 0;
+.chamfering {
+  border-radius: var(--radius);
 }
 
-.inline-block div + div, .inline-block h2 + h2, .inline-block a + a {
-  margin-left: 10px;
-}
-
-.block {
-  display: block;
-}
-
-.color-white {
-  color: var(--white)
-}
-
-.color-grey {
-  color: var(--grey)
-}
-
-.color-darkgrey {
-  color: var(--darkgrey)
-}
-
-.hover-anim:hover {
-  animation: outlineAnimation 5s linear infinite, rainbow 5s linear infinite;
-  cursor: pointer;
-}
-
-.word-wrap {
-  max-width: 70%;
-  word-wrap: break-word;
-}
-
-.profile-image {
-  max-width: 300px;
-  margin-top: 1.5%;
-  margin-bottom: 1.5%;
-}
-
-.resume {
-  width: 62vw;
-  height: 88vh;
+.shadow {
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
 }
