@@ -8,6 +8,7 @@
   --radius: 10px;
 }
 
+/* DECLARATIONS */
 @font-face { 
   font-family: Inter; 
   src: url('./assets/Inter-VariableFont.ttf');
@@ -26,12 +27,8 @@
   100% { background-position: 50% calc(50% + 400px);}
 }
 
+/* TAG FORMATTING */
 html {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  overflow: hidden;
-  /* background-color: var(--background); */
   font-family: Inter, sans-serif;
   background: var(--background-pattern) repeat 0 0;
   background-position: 50% 50%;
@@ -39,21 +36,22 @@ html {
 }
 
 body {
-  margin: 0;
-  overflow: hidden;
   text-align: center;
   color: var(--foreground);
 }
 
 a {
+  color: var(--foreground);
   text-decoration: none;
   font-family: Inter, sans-serif;
 }
 
 a:hover {
+  text-decoration: none;
   color: var(--accent);
 }
 
+/* MODIFIERS */
 .inline-block div, .inline-block h2, .inline-block a {
   display: inline-block;
   margin: 0;
