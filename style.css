@@ -40,10 +40,15 @@ body {
   color: var(--foreground);
 }
 
-nav {
+header {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+footer > *{
+  display: inline-block;
+  margin: 1ch;
 }
 
 nav > *{
