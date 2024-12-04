@@ -44,12 +44,11 @@ nav {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  padding: 1ch;
 }
 
-nav > * {
+nav > *{
   display: inline-block;
-  margin-left: 1ch;
+  margin: 1ch;
   filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
 }
 
@@ -68,19 +67,16 @@ a:hover {
 }
 
 /* MODIFIERS */
-.inline-block div, .inline-block h2, .inline-block a {
-  display: inline-block;
-  margin: 0;
-}
-
-.inline-block div + div, .inline-block h2 + h2, .inline-block a + a {
-  display: inline-block;
-  margin-left: 10px;
-}
-
 .box {
   background-color: var(--box-background);
   border-radius: var(--radius);
+  width: fit-content;
+  height: fit-content;
+  padding: 1ch;
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+}
+
+.fit {
   width: fit-content;
   height: fit-content;
 }
@@ -88,6 +84,7 @@ a:hover {
 .center {
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .chamfering {
@@ -105,4 +102,9 @@ a:hover {
     1px -1px 0 #ffffff80,   /* Shadow on the top right (black) */
     -1px 1px 0 #ffffff80;
   filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
+}
+
+.profile {
+  margin: 5%;
+  width: 40vw;
 }
