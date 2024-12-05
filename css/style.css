@@ -26,14 +26,11 @@
 }
 /* TAG FORMATTING */
 html {
+  color: #fff;
   font-family: Inter, sans-serif;
   background: url(/assets/green_grid.png) repeat 0 0;
   background-position: 50% 50%;
   animation: bg-scrolling 10s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
-}
-
-body {
-  color: #fff;
 }
 
 header {
@@ -116,6 +113,29 @@ a:hover {
 .pdf-page {
   width: 62vw;
   height: 81.1904761905vw;
+}
+
+/* COLLAPSING */
+.collapsible {
+  overflow: hidden;
+}
+.collapsible_label {
+  display: block;
+  cursor: pointer;
+}
+.collapsible_toggle {
+  display: none;
+}
+.collapsible_content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 10px;
+}
+.collapsible_content:not(:empty) {
+  padding: 0;
+}
+.collapsible__toggle:checked ~ .collapsible__content {
+  padding: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

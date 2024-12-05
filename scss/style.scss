@@ -7,8 +7,6 @@ $box-background: #879f8c;
 $background-pattern: url(/assets/green_grid.png);
 $radius: 10px;
 
-
-
 /* DECLARATIONS */
 @font-face { 
   font-family: Inter; 
@@ -30,14 +28,11 @@ $radius: 10px;
 
 /* TAG FORMATTING */
 html {
+  color: $foreground;
   font-family: Inter, sans-serif;
   background: $background-pattern repeat 0 0;
   background-position: 50% 50%;
   animation: bg-scrolling 10s cubic-bezier(.46,.03,.52,.96) infinite;
-}
-
-body {
-  color: $foreground;
 }
 
 header {
@@ -128,4 +123,33 @@ a:hover {
   $width: 62vw;
   width: $width;
   height: calc($width * (11 / 8.4));
+}
+
+/* COLLAPSING */
+.collapsible {
+  overflow: hidden;
+
+  &_label {
+    display: block;
+    cursor: pointer;
+  }
+
+  &_toggle {
+    display: none;
+  }
+
+  &_content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    
+    &:not(:empty) {
+      padding: 0;
+    }
+
+  }
+
+  &__toggle:checked ~ &__content {
+    padding: 10px;
+}
 }
