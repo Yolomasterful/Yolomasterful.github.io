@@ -1,13 +1,13 @@
 /* VARIABLES */
-:root {
-  --foreground: #ffffff;
-  --accent: #4d574a;
-  --background: #a1b5a5;
-  --secondary-background: #C2DDC0;
-  --box-background: #879f8c;
-  --background-pattern: url(/assets/green_grid.png);
-  --radius: 10px;
-}
+$foreground: #fff;
+$accent: #4d574a;
+$background: #a1b5a5;
+$secondary-background: #C2DDC0;
+$box-background: #879f8c;
+$background-pattern: url(/assets/green_grid.png);
+$radius: 10px;
+
+
 
 /* DECLARATIONS */
 @font-face { 
@@ -31,13 +31,13 @@
 /* TAG FORMATTING */
 html {
   font-family: Inter, sans-serif;
-  background: var(--background-pattern) repeat 0 0;
+  background: $background-pattern repeat 0 0;
   background-position: 50% 50%;
   animation: bg-scrolling 10s cubic-bezier(.46,.03,.52,.96) infinite;
 }
 
 body {
-  color: var(--foreground);
+  color: $foreground;
 }
 
 header {
@@ -46,39 +46,48 @@ header {
   text-align: center;
 }
 
+footer {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 footer > *{
   display: inline-block;
   margin: 1ch;
+  @extend .shadow
 }
 
 nav > *{
   display: inline-block;
   margin: 1ch;
-  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+  @extend .shadow
 }
 
-/* nav *:not(:has(*)) {
-  display: inline-block;
-  margin-left: 1ch;
-} */
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 24px;
+}
 
 a {
   text-decoration: none;
-  color: var(--foreground);
+  color: $foreground;
 }
 
 a:hover {
-  color: var(--accent);
+  color: $accent;
 }
 
 /* MODIFIERS */
 .box {
-  background-color: var(--box-background);
-  border-radius: var(--radius);
+  background-color: $box-background;
+  border-radius: $radius;
   width: fit-content;
   height: fit-content;
   padding: 1ch;
-  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+  @extend .shadow
 }
 
 .fit {
@@ -93,7 +102,7 @@ a:hover {
 }
 
 .chamfering {
-  border-radius: var(--radius);
+  border-radius: $radius;
 }
 
 .shadow {
@@ -102,14 +111,21 @@ a:hover {
 
 .shadow > a:hover {
   text-shadow: 
-    1px 1px 0 #ffffff80,    /* Shadow on the right and bottom (black) */
-    -1px -1px 0 #ffffff80,  /* Shadow on the left and top (black) */
-    1px -1px 0 #ffffff80,   /* Shadow on the top right (black) */
+    1px 1px 0 #ffffff80,
+    -1px -1px 0 #ffffff80,
+    1px -1px 0 #ffffff80,
     -1px 1px 0 #ffffff80;
   filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
 }
 
 .profile {
   margin: 5%;
+  margin-bottom: 0;
   width: 40vw;
+}
+
+.pdf-page {
+  $width: 62vw;
+  width: $width;
+  height: calc($width * (11 / 7.7));
 }
