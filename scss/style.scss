@@ -1,4 +1,5 @@
 /* VARIABLES */
+
 $foreground: #fff;
 $accent: #4d574a;
 $background: #a1b5a5;
@@ -8,14 +9,15 @@ $background-pattern: url(/assets/green_grid.png);
 $radius: 10px;
 
 /* DECLARATIONS */
+
 @font-face { 
   font-family: Inter; 
-  src: url('./assets/Inter-VariableFont.ttf');
+  src: url('/assets/Inter-VariableFont.ttf');
   font-style: normal;
 }
 @font-face { 
   font-family: Inter; 
-  src: url('./assets/Inter-Italic-VariableFont.ttf');
+  src: url('/assets/Inter-Italic-VariableFont.ttf');
   font-style: italic;
 }
 
@@ -31,31 +33,9 @@ html {
   color: $foreground;
   font-family: Inter, sans-serif;
   background: $background-pattern repeat 0 0;
+  background-color: $background;
   background-position: 50% 50%;
   animation: bg-scrolling 10s cubic-bezier(.46,.03,.52,.96) infinite;
-}
-
-header {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-footer {
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-footer > *{
-  display: inline-block;
-  margin: 1ch;
-  @extend .shadow
-}
-
-nav > *{
-  display: inline-block;
-  margin: 1ch;
-  @extend .shadow
 }
 
 h1 {
@@ -69,20 +49,57 @@ h2 {
 a {
   text-decoration: none;
   color: $foreground;
+
+  &:hover {
+    color: $accent;
+  }
 }
 
-a:hover {
-  color: $accent;
+/* SPECIFIC SECTIONS */
+
+.nav-bar {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  
+  & nav > *{
+    display: inline-block;
+    margin-left: 1ch;
+    margin-right: 1ch;
+    @extend .shadow;
+  }
+}
+
+.connections {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: auto;
+  margin-right: auto;
+
+  & > * {
+    display: inline-block;
+    margin: 1ch;
+  }
 }
 
 /* MODIFIERS */
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
 .box {
   background-color: $box-background;
-  border-radius: $radius;
   width: fit-content;
   height: fit-content;
   padding: 1ch;
-  @extend .shadow
+  @extend .shadow;
+  @extend .chamfer;
 }
 
 .fit {
@@ -96,21 +113,21 @@ a:hover {
   text-align: center;
 }
 
-.chamfering {
+.chamfer {
   border-radius: $radius;
 }
 
-.shadow {
+.shadow, .shadow a {
   filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
-}
 
-.shadow > a:hover {
-  text-shadow: 
-    1px 1px 0 #ffffff80,
-    -1px -1px 0 #ffffff80,
-    1px -1px 0 #ffffff80,
-    -1px 1px 0 #ffffff80;
-  filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
+  & a:hover, & > a:hover {
+    text-shadow: 
+      1px 1px 0 #ffffff80,
+      -1px -1px 0 #ffffff80,
+      1px -1px 0 #ffffff80,
+      -1px 1px 0 #ffffff80;
+    filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
+  }
 }
 
 .profile {
@@ -126,6 +143,7 @@ a:hover {
 }
 
 /* COLLAPSING */
+
 .collapsible {
   overflow: hidden;
 
