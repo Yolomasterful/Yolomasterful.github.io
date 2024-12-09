@@ -38,6 +38,10 @@ html {
   animation: bg-scrolling 10s cubic-bezier(.46,.03,.52,.96) infinite;
 }
 
+/* div + div, button + div {
+  margin: 2%;
+} */
+
 h1 {
   font-size: 48px;
 }
@@ -46,12 +50,18 @@ h2 {
   font-size: 24px;
 }
 
+p {
+  font-size: 20px;
+}
+
 a {
   text-decoration: none;
   color: $foreground;
+  border: none;
 
   &:hover {
     color: $accent;
+    cursor: pointer;
   }
 }
 
@@ -120,7 +130,7 @@ a {
 .shadow, .shadow a {
   filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
 
-  & a:hover, & > a:hover {
+  & a:hover, & > a:hover{
     text-shadow: 
       1px 1px 0 #ffffff80,
       -1px -1px 0 #ffffff80,
@@ -139,35 +149,51 @@ a {
 .pdf-page {
   $width: 62vw;
   width: $width;
-  height: calc($width * (11 / 8.4));
+  height: calc($width * (11 / 8.35));
 }
 
-/* COLLAPSING */
+/* COLLAPSIBLE */
 
 .collapsible {
   overflow: hidden;
+  margin: 20px;
 
-  &_label {
-    display: block;
-    cursor: pointer;
-  }
+  &_button {
+    text-decoration: none;
+    color: $foreground;
+    border: none;
 
-  &_toggle {
-    display: none;
+    &:hover {
+      color: $accent;
+      cursor: pointer;
+    }
+
+    &.box {
+      background-color: $box-background;
+    }
+  
+    &.box:hover {
+      background-color: $accent;
+    }
   }
 
   &_content {
+    visibility: hidden;
     max-height: 0;
-    overflow: hidden;
-    padding: 0 10px;
-    
-    &:not(:empty) {
-      padding: 0;
-    }
-
+    margin: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    transition: max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease, visibility 0s linear 0.3s;
   }
 
-  &__toggle:checked ~ &__content {
+  &_open {
+    visibility: visible;
+    max-height: fit-content;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 10px;
-}
+    transition: max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease, visibility 0s linear 0s;
+  }
 }

@@ -34,6 +34,9 @@ html {
   animation: bg-scrolling 10s cubic-bezier(0.46, 0.03, 0.52, 0.96) infinite;
 }
 
+/* div + div, button + div {
+  margin: 2%;
+} */
 h1 {
   font-size: 48px;
 }
@@ -42,12 +45,18 @@ h2 {
   font-size: 24px;
 }
 
+p {
+  font-size: 20px;
+}
+
 a {
   text-decoration: none;
   color: #fff;
+  border: none;
 }
 a:hover {
   color: #4d574a;
+  cursor: pointer;
 }
 
 /* SPECIFIC SECTIONS */
@@ -120,30 +129,46 @@ a:hover {
 
 .pdf-page {
   width: 62vw;
-  height: 81.1904761905vw;
+  height: 81.6766467066vw;
 }
 
-/* COLLAPSING */
+/* COLLAPSIBLE */
 .collapsible {
   overflow: hidden;
+  margin: 20px;
 }
-.collapsible_label {
-  display: block;
+.collapsible_button {
+  text-decoration: none;
+  color: #fff;
+  border: none;
+}
+.collapsible_button:hover {
+  color: #4d574a;
   cursor: pointer;
 }
-.collapsible_toggle {
-  display: none;
+.collapsible_button.box {
+  background-color: #879f8c;
+}
+.collapsible_button.box:hover {
+  background-color: #4d574a;
 }
 .collapsible_content {
+  visibility: hidden;
   max-height: 0;
-  overflow: hidden;
-  padding: 0 10px;
+  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  transition: max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease, visibility 0s linear 0.3s;
 }
-.collapsible_content:not(:empty) {
-  padding: 0;
-}
-.collapsible__toggle:checked ~ .collapsible__content {
+.collapsible_open {
+  visibility: visible;
+  max-height: fit-content;
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px;
+  transition: max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease, visibility 0s linear 0s;
 }
 
 /*# sourceMappingURL=style.css.map */

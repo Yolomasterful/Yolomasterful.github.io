@@ -40,7 +40,7 @@ function processSVGs() {
   const svgElements = document.querySelectorAll('.svg-bounds:not([data-processed])');
   svgElements.forEach(svgElement => {
     setViewBox(svgElement);
-    svgElement.setAttribute('data-processed', 'true'); // Avoid re-processing
+    svgElement.setAttribute('data-processed', 'true');
   });
 }
 
@@ -49,4 +49,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const observer = new MutationObserver(() => processSVGs());
   observer.observe(document.body, { childList: true, subtree: true });
+});
+
+/* COLLAPSIBLES */
+/* const collapsibleButtons = document.querySelectorAll('.collapsible_button');
+
+collapsibleButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    const content = this.nextElementSibling;
+
+    content.classList.toggle('collapsible_open');
+  });
+}); */
+
+const collapsibleButtons = document.querySelectorAll('.collapsible_button');
+
+collapsibleButtons.forEach(button => {
+  button.addEventListener('click', function () {
+    const content = this.nextElementSibling;
+
+    if (content.classList.contains('collapsible_open')) {
+      content.style.maxHeight = null;
+      content.style.visibility = 'hidden';
+      content.classList.remove('collapsible_open');
+    } else {
+      content.style.maxHeight = `${content.scrollHeight}px`;
+      content.style.visibility = 'visible';
+      content.classList.add('collapsible_open');
+    }
+  });
 });
