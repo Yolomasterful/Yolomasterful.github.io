@@ -108,7 +108,6 @@ a {
   width: fit-content;
   height: fit-content;
   padding: 1ch;
-  @extend .shadow;
   @extend .chamfer;
 }
 
@@ -166,7 +165,13 @@ a {
     &:hover {
       color: $accent;
       cursor: pointer;
-    }
+      text-shadow: 
+        1px 1px 0 #ffffff80,
+        -1px -1px 0 #ffffff80,
+        1px -1px 0 #ffffff80,
+        -1px 1px 0 #ffffff80;
+      filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
+      }
 
     &.box {
       background-color: $box-background;
@@ -176,7 +181,6 @@ a {
       background-color: $accent;
     }
   }
-
   &_content {
     visibility: hidden;
     max-height: 0;
