@@ -142,10 +142,18 @@ a:hover {
   color: #fff;
   border: none;
 }
+.collapsible_button > * {
+  filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+}
 .collapsible_button:hover {
   color: #4d574a;
   cursor: pointer;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 1px;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5019607843), -1px -1px 0 rgba(255, 255, 255, 0.5019607843), 1px -1px 0 rgba(255, 255, 255, 0.5019607843), -1px 1px 0 rgba(255, 255, 255, 0.5019607843);
+  filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
+}
+.collapsible_button:hover > * {
   filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
 }
 .collapsible_button.box {
