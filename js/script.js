@@ -1,4 +1,5 @@
-/* LOAD NAV-BAR */
+/* Load nav-bar */
+
 fetch('/pages/reuseable/nav-bar.html')
 .then(response => response.text())
 .then(data => {
@@ -12,11 +13,12 @@ fetch('/pages/reuseable/nav-bar.html')
   }
 });
 
-/* LOAD CONNECTIONS */
-fetch('/pages/reuseable/connections.html')
+/* Load con-bar */
+
+fetch('/pages/reuseable/con-bar.html')
 .then(response => response.text())
 .then(data => {
-  document.getElementById('connections').innerHTML = data;
+  document.getElementById('con-bar').innerHTML = data;
 })
 
 /* FADE-IN */
@@ -30,7 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-/* SVG MANAGMENT */
+/* Load Fade Ins */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const fadeInElements = document.querySelectorAll('.fade-in');
+  
+  fadeInElements.forEach(element => {
+    setTimeout(() => {
+      element.classList.add('visible');
+    }, 100);
+  });
+});
+
+/* SVG Managment */
+
 function setViewBox(svg) {
   const boundingBox = svg.getBBox();
   svg.setAttribute('viewBox', `${boundingBox.x} ${boundingBox.y} ${boundingBox.width} ${boundingBox.height}`);
@@ -51,31 +66,60 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(document.body, { childList: true, subtree: true });
 });
 
-/* COLLAPSIBLES */
-/* const collapsibleButtons = document.querySelectorAll('.collapsible_button');
+/* iframe Paragraph Resizer */
 
-collapsibleButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    const content = this.nextElementSibling;
+(function () {
+  const MAX_WIDTH = 900;
+  const MIN_WIDTH = 800;
 
-    content.classList.toggle('collapsible_open');
+  function buildMap() {
+    const map = new Map();
+    document.querySelectorAll('iframe.paragraph').forEach(iframe => {
+      if (iframe.contentWindow) map.set(iframe.contentWindow, iframe);
+    });
+    return map;
+  }
+
+  window.addEventListener('message', (event) => {
+    const data = event.data || {};
+    if (data.type !== 'size') return;
+
+    const map = buildMap();
+    const iframe = map.get(event.source);
+    if (!iframe) return;
+
+    let w = Number(data.width) || iframe.clientWidth;
+    if (w < MIN_WIDTH) w = MIN_WIDTH;
+    else if (w > MAX_WIDTH) w = MAX_WIDTH;
+
+    let h = Number(data.height) || iframe.clientHeight;
+
+    iframe.style.width = w + 'px';
+    iframe.style.height = h + 'px';
+    iframe.style.display = 'block';
+    iframe.style.margin = '0 auto 1rem';
   });
-}); */
+})();
 
-const collapsibleButtons = document.querySelectorAll('.collapsible_button');
 
-collapsibleButtons.forEach(button => {
-  button.addEventListener('click', function () {
-    const content = this.nextElementSibling;
+/* New Tab Opener */
 
-    if (content.classList.contains('collapsible_open')) {
-      content.style.maxHeight = null;
-      content.style.visibility = 'hidden';
-      content.classList.remove('collapsible_open');
-    } else {
-      content.style.maxHeight = `${content.scrollHeight}px`;
-      content.style.visibility = 'visible';
-      content.classList.add('collapsible_open');
-    }
+function makeNewTabs(root = document) {
+  root.querySelectorAll && root.querySelectorAll('a.new_tab').forEach(a => {
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
   });
+}
+
+document.addEventListener('DOMContentLoaded', () => makeNewTabs());
+
+const mo = new MutationObserver(muts => {
+  for (const m of muts) {
+    m.addedNodes.forEach(node => {
+      if (node.nodeType !== 1) return;
+      if (node.matches && node.matches('a.new_tab')) makeNewTabs(node);
+      if (node.querySelectorAll) makeNewTabs(node);
+    });
+  }
 });
+mo.observe(document.documentElement, { childList: true, subtree: true });

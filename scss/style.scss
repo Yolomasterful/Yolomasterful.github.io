@@ -1,46 +1,39 @@
-/* VARIABLES */
+:root {
+  --foreground: #b4c0dd;
+  --accent: #303D5A;
+  --background: #151A27;
+  --light-background: #212A3E;
+  --box-background: var(--light-background);
+  --radius: 10px;
+}
 
-$foreground: #fff;
-$accent: #4d574a;
-$background: #a1b5a5;
-$secondary-background: #C2DDC0;
-$box-background: #879f8c;
-$background-pattern: url(/assets/green_grid.png);
-$radius: 10px;
-
-/* DECLARATIONS */
+$tile-pattern: url('/assets/tile.png');
 
 @font-face { 
   font-family: Inter; 
   src: url('/assets/Inter-VariableFont.ttf');
   font-style: normal;
 }
-@font-face { 
-  font-family: Inter; 
-  src: url('/assets/Inter-Italic-VariableFont.ttf');
-  font-style: italic;
-}
 
 @keyframes bg-scrolling {
-  25%  { background-position: calc(50% + 100px) calc(50% + 100px);}
-  50%  { background-position: calc(50% + 100px) calc(50% + 200px);}
-  75%  { background-position: 50% calc(50% + 300px);}
-  100% { background-position: 50% calc(50% + 400px);}
+  25%  { background-position: calc(50% + 80px) calc(50% + 80px);}
+  50%  { background-position: calc(50% + 80px) calc(50% + 160px);}
+  75%  { background-position: 50% calc(50% + 240px);}
+  100% { background-position: 50% calc(50% + 320px);}
 }
 
-/* TAG FORMATTING */
 html {
-  color: $foreground;
-  font-family: Inter, sans-serif;
-  background: $background-pattern repeat 0 0;
-  background-color: $background;
+  background: $tile-pattern repeat 0 0;
+  background-color: var(--background);
+
   background-position: 50% 50%;
   animation: bg-scrolling 10s cubic-bezier(.46,.03,.52,.96) infinite;
 }
 
-/* div + div, button + div {
-  margin: 2%;
-} */
+body {
+  color: var(--foreground);
+  font-family: Inter, sans-serif;
+}
 
 h1 {
   font-size: 48px;
@@ -50,49 +43,77 @@ h2 {
   font-size: 24px;
 }
 
-p {
+h3 {
   font-size: 20px;
+}
+
+p {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 12px;
 }
 
 a {
   text-decoration: none;
-  color: $foreground;
+  color: var(--foreground);
   border: none;
 
   &:hover {
-    color: $accent;
+    color: var(--accent);
     cursor: pointer;
   }
 }
 
-/* SPECIFIC SECTIONS */
+/* Reuseables */
 
 .nav-bar {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  
-  & nav > *{
-    display: inline-block;
-    margin-left: 1ch;
-    margin-right: 1ch;
+
+  & nav {
+    display: inline-flex;
+    gap: 1rem;
+  }
+
+  & nav > a {
     @extend .shadow;
+    padding: 1ch;
   }
 }
 
-.connections {
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: auto;
-  margin-right: auto;
+.con-bar {
+  display: flex;
+  gap: 1rem;
+  margin: 2ch;
 
   & > * {
-    display: inline-block;
-    margin: 1ch;
+    padding: 0.5ch;
   }
 }
 
-/* MODIFIERS */
+.part-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  & > h5 {
+    text-align: left;
+    margin: 2px;
+  }
+
+  & > .part {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+  }
+}
+
+/* Modifiers */
 
 .fade-in {
   opacity: 0;
@@ -103,27 +124,26 @@ a {
   }
 }
 
-.box {
-  background-color: $box-background;
-  width: fit-content;
-  height: fit-content;
-  padding: 1ch;
-  @extend .chamfer;
-}
-
-.fit {
-  width: fit-content;
-  height: fit-content;
-}
-
 .center {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
+.box {
+  background-color: var(--box-background);
+  width: fit-content;
+  height: fit-content;
+  padding: 1ch;
+  @extend .chamfer;
+}
+
 .chamfer {
-  border-radius: $radius;
+  border-radius: var(--radius);
+}
+
+.spacer {
+  margin: 4ch;
 }
 
 .shadow, .shadow a {
@@ -139,75 +159,13 @@ a {
   }
 }
 
-.profile {
-  margin: 5%;
-  margin-bottom: 0;
-  width: 400px;
-}
+iframe.paragraph {
+  width:100%;
+  height:100%;
 
-.pdf-page {
-  $width: 62vw;
-  width: $width;
-  height: calc($width * (11 / 8.35));
-}
+  color: var(--foreground);
+  font-family: Inter, sans-serif;
+  border: none;
 
-/* COLLAPSIBLE */
-
-.collapsible {
-  overflow: hidden;
-  margin: 20px;
-
-  &_button {
-    text-decoration: none;
-    color: $foreground;
-    border: none;
-
-    & > * {
-      filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
-    }
-
-    &:hover {
-      color: $accent;
-      cursor: pointer;
-      stroke: rgba(255, 255, 255, 0.75);
-      stroke-width: 1px;
-      text-shadow: 
-      1px 1px 0 #ffffff80,
-      -1px -1px 0 #ffffff80,
-      1px -1px 0 #ffffff80,
-      -1px 1px 0 #ffffff80;
-      filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
-
-      & > * {
-        filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.75));
-      }
-    }
-
-    &.box {
-      background-color: $box-background;
-    }
-  
-    &.box:hover {
-      background-color: $accent;
-    }
-  }
-  &_content {
-    visibility: hidden;
-    max-height: 0;
-    margin: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 5px;
-    transition: max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease, visibility 0s linear 0.3s;
-  }
-
-  &_open {
-    visibility: visible;
-    max-height: fit-content;
-    margin: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-    transition: max-height 0.3s ease, margin 0.3s ease, padding 0.3s ease, visibility 0s linear 0s;
-  }
+  @extend .shadow;
 }

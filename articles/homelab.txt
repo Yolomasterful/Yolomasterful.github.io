@@ -1,0 +1,5 @@
+I currently run a Homelab Server that contains all of my media and long term documents.
+As of right now it is running off of a HP Prodesk 400 with Linux Mint as the operating system.
+It is running apps such as Home Assistant, Plex Media Server, and Game servers of the like (Minecraft, Terraria, etc.).
+For future additions to my server setup I will use the build that is in my builds page on this site, of which I would like to start using TrueNAS Scale.
+This would allow me to use the built in applications for Plex, Nextcloud and Home Assistant. Whilst meaning I can use the built in docker integration to containerize my game servers.

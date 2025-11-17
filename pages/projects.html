@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logan Kerr</title>
+    <title>Hello. Hej.</title>
     <link rel="icon" href="/assets/icon.png">
     <link rel="stylesheet" href="/css/style.css">
   </head>
 
-  <body>
-    <div id="nav-bar" class="fade-in"></div>
-    <div class="collapsible center shadow fade-in">
-      <button class="collapsible_button box center"><h2>Yolomasterful.github.io</h2></button>
-      <div class="collapsible_content box center">
-        <p class="shadow">This webpage was made with HTML, CSS (SCSS), and a small amount of Javascript.</p>
-        <p class="shadow">It was developed to allow employers to recognize my current skill set and or any information I deem public. It has sections for each category of information ie. Home, Projects, Skills, Resumes and About.</p>
-        <p class="shadow">I tried to keep the website as simple as I could without getting rid of details I wanted to show off.</p>
-        <h3><a href="https://github.com/Yolomasterful/Yolomasterful.github.io">-> Link to repo <-</a></h3>
-      </div>
-    </div>
-    <script src="/js/script.js"></script>
-  </body>
-  
+  <body class="fade-in">
+    <div id="nav-bar"></div>
+    
+    <div class="spacer" aria-hidden="true"></div>
+    
+    <section class="box shadow center">
+      <h2 class="shadow">Tephra Glass Trace Element Database</h2>
+      <iframe class="paragraph" src="/pages/reuseable/viewer.html?src=/../../articles/tephra.txt" sandbox="allow-scripts allow-same-origin"></iframe>
+      <a class="center shadow new_tab"href="https://github.com/Yolomasterful/Tephra_Glass_Trace_Element_Database"><h2>--> Repo <--</h2></a>
+    </section>
+    <div class="spacer" aria-hidden="true"></div>
+    <section class="box shadow center">
+      <h2 class="shadow">Homelab Server</h2>
+      <iframe class="paragraph" src="/pages/reuseable/viewer.html?src=/../../articles/homelab.txt" sandbox="allow-scripts allow-same-origin"></iframe>
+    </section>
+
+    <div id="con-bar"></div>
+</body>
+
+<script src="/js/script.js"></script>
 </html>
