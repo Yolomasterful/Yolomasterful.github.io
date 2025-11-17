@@ -1,0 +1,3 @@
+I spent a term at MacEwan doing research into the Grubstake Tephra in Alaska which had a main focus of how to collect and store the data efficiently aswell as fix the problems with current methods of data storage which was outdated and messy.
+The program used SQL and Python to create a GUI interface in order to input data from a csv and parse it into proper table structure with the relational model in mind while still being faster than loading Excel.
+This also allowed for easy exporting of data back into csv format for usage with excel as was used before this project started.

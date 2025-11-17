@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>html {all: unset;}</style>
+  </head>
+
+  <body>
+    <style>
+      .center {
+        text-align: center;
+      }
+    </style>
+    <pre id="content" style="display:none"></pre>
+    <div id="render" class="center"></div>
+    <script>
+      (function () {
+      // --- Config ---
+      const params = new URLSearchParams(location.search);
+      const txtUrl = params.get('src');
+
+      // --- Safe postMessage helper ---
+      function safePostToParent(obj) {
+        try {
+          // In production, replace '*' with the parent's origin and check it on the parent side.
+          parent.postMessage(obj, '*');
+        } catch (e) {
+          // ignore if posting fails (no parent or sandboxed)
+          // console.warn('postMessage failed', e);
+        }
+      }
+
+      // --- Measure content width & height ---
+      function getContentSize() {
+        const container = document.getElementById('render') || document.documentElement;
+        // Compute widest child element width
+        let maxWidth = 0;
+        container.querySelectorAll('*').forEach(node => {
+          const r = node.getBoundingClientRect();
+          if (r.width > maxWidth) maxWidth = r.width;
+        });
+        // Fallback to scrollWidth/offsetWidth
+        maxWidth = Math.max(maxWidth, container.scrollWidth || 0, container.offsetWidth || 0, document.documentElement.scrollWidth || 0);
+        const height = Math.max(document.documentElement.scrollHeight || 0, document.body.scrollHeight || 0, container.scrollHeight || 0);
+        return { width: Math.ceil(maxWidth), height: Math.ceil(height) };
+      }
+
+      function postSizeToParent() {
+        try {
+          const { width, height } = getContentSize();
+          safePostToParent({ type: 'size', width, height });
+        } catch (e) {
+          // ignore measurement errors
+        }
+      }
+
+      // notify after layout settles
+      function notifyAfterRender() {
+        // two RAFs give the browser a chance to layout fonts/images
+        requestAnimationFrame(() => requestAnimationFrame(postSizeToParent));
+      }
+
+      // expose for external calls if needed
+      window.__notifyParent = notifyAfterRender;
+
+      // --- Rendering text as paragraphs ---
+      function renderAsParagraphs(text) {
+        const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+        const lines = normalized.split('\n');
+        const container = document.getElementById('render');
+        container.innerHTML = '';
+        lines.forEach(line => {
+          const p = document.createElement('p');
+          p.textContent = line;
+          p.className = 'article-line';
+          container.appendChild(p);
+        });
+
+        // Constrain the textual measure inside iframe (adjust as desired)
+        // This ensures lines are readable and gives an internal max width
+        container.style.maxWidth = '70ch'; // change to desired measure (e.g., '60ch' or '800px')
+        container.style.width = 'auto';
+
+        notifyAfterRender();
+      }
+
+      // --- Fetch text file safely ---
+      function fetchText(url) {
+        return fetch(url, { credentials: 'same-origin' })
+          .then(r => {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.text();
+          });
+      }
+
+      // --- Initialization ---
+      fetchText(txtUrl)
+        .then(t => renderAsParagraphs(t))
+        .catch(e => {
+          console.error('fetch error', e);
+          const r = document.getElementById('render');
+          if (r) r.textContent = 'Error loading file';
+          notifyAfterRender();
+        });
+
+      // --- Keep parent updated when layout changes ---
+      window.addEventListener('resize', postSizeToParent);
+      // Observe size changes that may affect layout
+      try {
+        new ResizeObserver(postSizeToParent).observe(document.documentElement);
+      } catch (e) {
+        // ResizeObserver not supported -> rely on resize events & manual calls
+      }
+
+      // In case fonts/images load later, attempt additional notifications
+      window.addEventListener('load', postSizeToParent);
+    })();
+    </script>
+
+
+  </body>
+</html>
