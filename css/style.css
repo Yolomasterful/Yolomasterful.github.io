@@ -119,4 +119,9 @@ iframe.paragraph {
   font-family: Inter, sans-serif;
   border: none; }
 
+iframe.pdf {
+  width: 70vw;
+  height: calc(70vw * (11 / 8.5));
+  border: none; }
+
 /*# sourceMappingURL=style.css.map */
