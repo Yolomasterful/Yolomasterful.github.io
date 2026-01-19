@@ -1,8 +1,8 @@
 :root {
-  --foreground: #d8cbc4;
-  --accent: #765341;
-  --background: #3d251e;
-  --light-background: #5b3e31;
+  --foreground: #c6c6c6;
+  --accent: #919191;
+  --background: #303030;
+  --light-background: #5e5e5e;
   --box-background: var(--light-background);
   --radius: 10px;
 }
@@ -72,11 +72,39 @@ a {
 
 /* Reuseables */
 
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/*@media  {
+  .flex {
+    flex-direction: column;
+  }
+}*/
+
+.profile-pic {
+  width: 35%;
+  max-width: 500px;
+}
+
+.game-pic {
+  width: 25%;
+  max-width: 300px;
+}
+
 .nav-bar {
+  margin: 2ch;
 
   & nav {
-    display: inline-flex;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
+
   }
 
   & nav > a {
@@ -87,7 +115,9 @@ a {
 
 .con-bar {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
   margin: 2ch;
 
   & > * {
@@ -172,7 +202,9 @@ iframe.paragraph {
 
 iframe.pdf {
   width: 70vw;
+  max-width: 600px;
   height: calc(70vw * (11 / 8.5));
+  max-height: calc(600px * (11 / 8.5));
 
   border: none;
 }

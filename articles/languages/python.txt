@@ -1,0 +1,3 @@
+I have been using python for over 5 years. I originally started self-taught and have been developing many small programs for myself to perform tasks.
+Using python I have created GUI's as well as CLI tools that aid me in organizing files and manipulating data.
+With python, I have also endeavoured into web scraping using selenium and I even did research on how to store Trace Elements from geological samples into a sqlite database.
